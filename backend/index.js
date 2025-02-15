@@ -16,7 +16,8 @@ const server = http.createServer(app);
 
 // Allowed origins for CORS
 const allowedOrigins = [
-  process.env.CLIENT_URL || "http://localhost:3000"
+  process.env.CLIENT_URL || "http://localhost:3000",
+  "https://note-keeper-assignment-theta.vercel.app",
 ];
 
 // Middleware setup
@@ -46,7 +47,7 @@ app.use((req, res, next) => {
 
 // API Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/notes', notesRoutes);
+
 
 // Initialize Socket.IO with CORS
 const io = socketIO(server, {

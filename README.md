@@ -36,3 +36,21 @@ Authentication Flow
 
 ![image](https://github.com/user-attachments/assets/503ce735-5a78-4c03-8e89-3ea410f2fbbb)
 
+State Flow
+
+![image](https://github.com/user-attachments/assets/2b72993c-e295-4b10-9fdc-5fb6d92454ac)
+
+API Endpoints
+Authentication
+
+POST /api/auth/register - Register a new user
+POST /api/auth/login - Login user
+
+Socket.IO Events
+
+fetchNotes - Get all notes for a user
+createNote - Create a new note
+updateNote - Update an existing note
+deleteNote - Delete a note
+likeNote - Like a note
+unlikeNote - Unlike a note

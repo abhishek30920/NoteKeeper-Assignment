@@ -34,4 +34,5 @@ Helmet for security <br/>
 
 Authentication Flow 
 
-![image](https://github.com/user-attachments/assets/d1afad99-73f1-4d1b-9074-befc5c0695fb)
+![image](https://github.com/user-attachments/assets/503ce735-5a78-4c03-8e89-3ea410f2fbbb)
+

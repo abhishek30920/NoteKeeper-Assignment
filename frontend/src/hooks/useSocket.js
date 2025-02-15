@@ -1,3 +1,4 @@
+// useSocket.js
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { io } from 'socket.io-client';
 import useAuthStore from '../store/auth';
@@ -14,9 +15,11 @@ export const useSocket = () => {
   // Create a stable reference for event registration
   const registerHandler = useCallback((event, handler) => {
     if (socketRef.current) {
+      // Remove existing handler if it exists
       if (eventHandlersRef.current.has(event)) {
         socketRef.current.off(event, eventHandlersRef.current.get(event));
       }
+      // Register new handler
       socketRef.current.on(event, handler);
       eventHandlersRef.current.set(event, handler);
     }
@@ -33,38 +36,36 @@ export const useSocket = () => {
   }, []);
 
   useEffect(() => {
+    // Only initialize socket if we have both user and token
     if (!socketRef.current && user && token) {
-      console.log('Connecting to Socket.IO server:', SOCKET_URL);
-
       socketRef.current = io(SOCKET_URL, {
         auth: { token },
-        transports: ['websocket'], 
-        withCredentials: true,
         reconnection: true,
         reconnectionAttempts: 5,
-        reconnectionDelay: 2000,
-        timeout: 15000
+        reconnectionDelay: 1000,
+        timeout: 10000
       });
 
+      // Set up core event handlers
       const setupCoreHandlers = () => {
         registerHandler('connect', () => {
-          console.log('✅ Socket connected');
+          console.log('Socket connected successfully');
           setIsConnected(true);
           socketRef.current.emit('join', user.id);
         });
 
         registerHandler('connect_error', (error) => {
-          console.error('❌ Socket connection error:', error.message);
+          console.error('Socket connection error:', error);
           setIsConnected(false);
         });
 
         registerHandler('disconnect', () => {
-          console.warn('⚠️ Socket disconnected');
+          console.log('Socket disconnected');
           setIsConnected(false);
         });
 
         registerHandler('reconnect', () => {
-          console.log('🔄 Socket reconnected');
+          console.log('Socket reconnected');
           setIsConnected(true);
           socketRef.current.emit('join', user.id);
         });
@@ -73,6 +74,7 @@ export const useSocket = () => {
       setupCoreHandlers();
     }
 
+    // Cleanup function
     return () => {
       cleanupEventListeners();
       if (socketRef.current) {

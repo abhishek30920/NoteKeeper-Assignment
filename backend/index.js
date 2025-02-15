@@ -52,14 +52,14 @@ app.use('/api/auth', authRoutes);
 // Initialize Socket.IO with CORS
 const io = socketIO(server, {
   cors: {
-    origin: allowedOrigins,
+    origin: allowedOrigins, // Ensure this includes your frontend URL
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-    transports: [ "polling"], // Ensure WebSocket is explicitly allowed
-  allowEIO3: true, // Support older clients (optional)
-
-  }
+    credentials: true
+  },
+  transports: ["websocket", "polling"], // WebSocket first, fallback to polling
+  allowEIO3: true // Support older clients (optional)
 });
+
 
 io.use((socket, next) => {
   const token = socket.handshake.auth.token;

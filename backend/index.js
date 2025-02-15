@@ -19,7 +19,9 @@ const io = socketIO(server, {
   cors: {
     origin: process.env.CLIENT_URL || "http://localhost:3000",
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
+    transports: ["polling", "websocket"], 
+    credentials: true,
+   
   }
 });
 
@@ -37,9 +39,9 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 
 
-// Authentication middleware for Socket.IO
+
 io.use((socket, next) => {
-  // You can add token verification here if needed
+
   const token = socket.handshake.auth.token;
   if (!token) {
     return next(new Error('Authentication error'));
@@ -51,9 +53,7 @@ io.use((socket, next) => {
       socket.user = decoded;
       next();
     });
-    // Add your token verification logic here
-    // For example: const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    // socket.user = decoded;
+ 
 
 
     next();
@@ -62,7 +62,7 @@ io.use((socket, next) => {
   }
 });
 
-// Socket.IO connection handler
+
 io.on('connection', (socket) => {
   console.log('New client connected:', socket.id);
 
@@ -91,7 +91,7 @@ io.on('connection', (socket) => {
   // Disconnection handling
   socket.on('disconnect', () => {
     console.log('Client disconnected:', socket.id);
-    // Clean up any user-specific resources if needed
+    
   });
 });
 

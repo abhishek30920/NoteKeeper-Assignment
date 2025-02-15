@@ -17,19 +17,19 @@ Technical Stack
 Frontend:
 
 React (Create React App)
-Zustand for state management
-Socket.IO client for real-time communication
-Tailwind CSS for styling
-React Hook Form with Zod for form validation
-Framer motion for Animation
+Zustand for state management <br/>
+Socket.IO client for real-time communication <br/>
+Tailwind CSS for styling <br/>
+React Hook Form with Zod for form validation <br/>
+Framer motion for Animation <br/>
 
 Backend:
 
-Node.js with Express
-Socket.IO for real-time updates
-MongoDB for data persistence
-JWT for authentication
-Helmet for security
+Node.js with Express <br/>
+Socket.IO for real-time updates <br/>
+MongoDB for data persistence <br/>
+JWT for authentication <br/>
+Helmet for security <br/>
 
 
 Authentication Flow 

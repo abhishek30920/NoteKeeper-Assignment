@@ -19,7 +19,7 @@ const io = socketIO(server, {
   cors: {
     origin: process.env.CLIENT_URL || "http://localhost:3000",
     methods: ["GET", "POST", "PUT", "DELETE"],
-    transports: ["polling", "websocket"], 
+    
     credentials: true,
    
   }

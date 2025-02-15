@@ -31,7 +31,7 @@ export default function LoginForm() {
       await login({email: data.email, password: data.password});
     } catch (error) {
       console.error('Login failed:', error);
-      alert('Login failed. Please check your credentials and try again.');
+    
     }
   };
 

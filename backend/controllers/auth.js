@@ -51,13 +51,14 @@ exports.login = async (req, res) => {
     // Find user
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(401).json({ error: 'Invalid credentials' });
+      console.log("here")
+      return res.status(400).json({ error: 'Invalid credentials' });
     }
 
     // Check password
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
-      return res.status(401).json({ error: 'Invalid credentials' });
+      return res.status(400).json({ error: 'Invalid credentials' });
     }
 
     // Generate token
@@ -74,6 +75,7 @@ exports.login = async (req, res) => {
       token,
     });
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: error.message });
   }
 };

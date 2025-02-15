@@ -30,7 +30,8 @@ const useAuthStore = create(
 
           return response.data;
         } catch (error) {
-          const errorMessage = error.response?.data?.message || 'Login failed';
+          console.log(error)
+          const errorMessage = error.response?.data?.error || 'Login failed';
           set({
             error: errorMessage,
             loading: false,

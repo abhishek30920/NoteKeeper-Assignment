@@ -34,7 +34,7 @@ export default function Register() {
       });
     } catch (error) {
       console.error('Registration failed:', error);
-      alert('Registration failed. Please try again.');
+   
     }
   };
 

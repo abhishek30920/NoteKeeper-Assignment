@@ -55,6 +55,9 @@ const io = socketIO(server, {
     origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
+    transports: ["websocket", "polling"], // Ensure WebSocket is explicitly allowed
+  allowEIO3: true, // Support older clients (optional)
+
   }
 });
 

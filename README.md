@@ -55,7 +55,7 @@ deleteNote - Delete a note
 likeNote - Like a note
 unlikeNote - Unlike a note
 
-Steps to SETUP locally
+# Steps to SETUP locally
 Installation
 
 Clone the repository:
@@ -65,7 +65,7 @@ cd notekeeper
 
 Install dependencies for both frontend and backend:
 
- Install backend dependencies
+ #Install backend dependencies
 cd backend
 npm install
 
@@ -86,7 +86,7 @@ Create a .env.local file in the frontend directory:
 VITE_SOCKET_URL=http://localhost:3000
 VITE_API_URL=http://localhost:3000/api
 
-Running the Application
+# Running the Application
 
 Start the fronted server:
 

@@ -58,46 +58,46 @@ unlikeNote - Unlike a note
 # Steps to SETUP locally
 Installation
 
-Clone the repository:
+Clone the repository:  <br/>
 
-git clone https://github.com/yourusername/notekeeper.git
-cd notekeeper
+git clone https://github.com/yourusername/notekeeper.git  <br/>
+cd notekeeper  <br/>
 
 Install dependencies for both frontend and backend:
 
 # Install backend dependencies
-cd backend
-npm install
+cd backend <br/>
+npm install  <br/>
 
 # Install frontend dependencies
-cd frontend
-npm install
+cd frontend  <br/>
+npm install   <br/>
 
 Create a .env file in the backend directory:
 
-envCopyPORT=5000
-MONGODB_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
-CLIENT_URL=http://localhost:3000
+envCopyPORT=5000  <br/>
+MONGODB_URI=your_mongodb_uri  <br/>
+JWT_SECRET=your_jwt_secret  <br/>
+CLIENT_URL=http://localhost:3000  <br/>
 
-Create a .env.local file in the frontend directory:
+Create a .env.local file in the frontend directory:  <br/>
 
 
-VITE_SOCKET_URL=http://localhost:3000
-VITE_API_URL=http://localhost:3000/api
+VITE_SOCKET_URL=http://localhost:3000  <br/>
+VITE_API_URL=http://localhost:3000/api  <br/>
 
 # Running the Application
 
 Start the fronted server:
 
-cd frontend
-npm run dev
-The application will be available at http://localhost:5173
+cd frontend  <br/>
+npm run dev  <br/>
+The application will be available at http://localhost:5173  <br/>
  
-Start the backend development server:
+Start the backend development server:  <br/>
 
-cd backend
-npm start
-The application will be available at http://localhost:3000
+cd backend  <br/>
+npm start  <br/>
+The application will be available at http://localhost:3000  <br/>
 
 

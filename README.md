@@ -65,7 +65,7 @@ cd notekeeper
 
 Install dependencies for both frontend and backend:
 
- #Install backend dependencies
+# Install backend dependencies
 cd backend
 npm install
 

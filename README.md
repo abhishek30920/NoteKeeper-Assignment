@@ -101,3 +101,68 @@ npm start  <br/>
 The application will be available at http://localhost:3000  <br/>
 
 
+Project Setup
+
+This guide will help you set up and run the frontend and backend of the project using Docker and Docker Compose.
+
+Prerequisites
+
+Make sure you have the following installed:
+
+Docker
+
+Docker Compose
+
+1️⃣ Setting Up Environment Variables
+
+Backend
+
+Create a .env file inside the backend folder and update the MongoDB URI:
+
+MONGO_URI=mongodb://host.docker.internal:27017/notebook
+PORT=3000
+JWT_SECRET=your_secret_key
+JWT_EXPIRATION=24h
+CLIENT_URL=http://localhost:5000
+
+Frontend
+
+Create a .env file inside the frontend folder:
+
+VITE_SOCKET_URL=http://localhost:3000
+VITE_API_URL=http://localhost:3000/api
+
+2️⃣ Running the Project with Docker Compose
+
+Step 1: Build and Start Services
+
+Run the following command in the project root directory:
+
+docker-compose up --build
+
+Step 2: Access the Services
+
+Backend: http://localhost:3000
+
+Frontend: http://localhost:5000
+
+MongoDB: Connect to mongodb://host.docker.internal:27017/notebook
+
+Step 3: Stop the Services
+
+To stop all containers, run:
+
+docker-compose down
+
+3️⃣ Troubleshooting
+
+MongoDB Connection Issues
+
+Make sure MongoDB is running (docker ps to check)
+
+Ensure the .env file contains MONGO_URI=mongodb://host.docker.internal:27017/notebook
+
+Port Conflicts
+
+If ports 5000 or 3000 are in use, change them in docker-compose.yml and .env.
+

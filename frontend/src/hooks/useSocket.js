@@ -38,7 +38,7 @@ export const useSocket = () => {
 
       socketRef.current = io(SOCKET_URL, {
         auth: { token },
-        transports: ["polling"],
+        transports: ["websocket","polling"],
         withCredentials: true, // Allow sending credentials
         reconnection: true,
         reconnectionAttempts: 5,
